@@ -24,9 +24,9 @@ public class ForumStatisticsTestSuite {
         ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
 
         //When
-        int postsPerUser = forumStatistics.calculateAdvStatistics().postsPerUser;
-        int commentsPerUser = forumStatistics.calculateAdvStatistics().commentsPerUser;
-        int commentsPerPost = forumStatistics.calculateAdvStatistics().commentsPerPost;
+        int postsPerUser = forumStatistics.calculateAdvStatistics(statisticsMock).postsPerUser;
+        int commentsPerUser = forumStatistics.calculateAdvStatistics(statisticsMock).commentsPerUser;
+        int commentsPerPost = forumStatistics.calculateAdvStatistics(statisticsMock).commentsPerPost;
 
         //Then
         Assert.assertEquals(0, postsPerUser);
