@@ -21,10 +21,12 @@ public class ForumStatistics {
         numberOfComments = statistics.commentsCount();
         postsPerUser = numberOfPosts / numberOfUsers;
         commentsPerUser = numberOfComments / numberOfUsers;
-        commentsPerPost = numberOfPosts / numberOfComments;
+        commentsPerPost = (double)numberOfComments / (double)numberOfPosts;
     }
 
     public void showStatistics(){
-        System.out.println("Total of users: " + numberOfUsers);
+        System.out.println("Posts per user: " + postsPerUser);
+        System.out.println("Comments per user: " + commentsPerUser);
+        System.out.println("Comments per post: " + commentsPerPost);
     }
 }
