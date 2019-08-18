@@ -24,7 +24,6 @@ public class ForumStatisticsTestSuite {
         ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
 
         //When
-        //forumStatistics.calculateAdvStatistics(statisticsMock);
         double postsPerUser = forumStatistics.postsPerUser;
         double commentsPerUser = forumStatistics.commentsPerUser;
         double commentsPerPost = forumStatistics.commentsPerPost;
