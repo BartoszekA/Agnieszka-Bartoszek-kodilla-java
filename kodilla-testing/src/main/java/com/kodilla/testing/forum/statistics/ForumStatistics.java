@@ -10,6 +10,30 @@ public class ForumStatistics {
     double commentsPerUser;
     double commentsPerPost;
 
+    public int getNumberOfUsers() {
+        return numberOfUsers;
+    }
+
+    public int getNumberOfPosts() {
+        return numberOfPosts;
+    }
+
+    public int getNumberOfComments() {
+        return numberOfComments;
+    }
+
+    public double getPostsPerUser() {
+        return postsPerUser;
+    }
+
+    public double getCommentsPerUser() {
+        return commentsPerUser;
+    }
+
+    public double getCommentsPerPost() {
+        return commentsPerPost;
+    }
+
     public ForumStatistics(Statistics statistics) {
         this.statistics = statistics;
     }
