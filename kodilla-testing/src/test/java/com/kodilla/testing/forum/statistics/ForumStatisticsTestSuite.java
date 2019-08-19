@@ -21,17 +21,18 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.postsCount()).thenReturn(posts);
         when(statisticsMock.commentsCount()).thenReturn(comments);
 
-        ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
+        ForumStatistics forumStatistics = new ForumStatistics();
 
         //When
-        double postsPerUser = forumStatistics.postsPerUser;
-        double commentsPerUser = forumStatistics.commentsPerUser;
-        double commentsPerPost = forumStatistics.commentsPerPost;
+        forumStatistics.calculateAdvStatistics(statisticsMock);
+        int numberOfUsers = forumStatistics.getNumberOfUsers();
+        int numberOfPosts = forumStatistics.getNumberOfPosts();
+        int numberOfComments = forumStatistics.getNumberOfComments();
 
         //Then
-        Assert.assertEquals(0, postsPerUser, 0);
-        Assert.assertEquals(0, commentsPerUser, 0);
-        Assert.assertEquals(0, commentsPerPost, 0);
+        Assert.assertEquals(0, numberOfUsers);
+        Assert.assertEquals(0, numberOfPosts);
+        Assert.assertEquals(0, numberOfComments);
     }
     @Test
     public void testForumStatistics2() {
@@ -43,17 +44,18 @@ public class ForumStatisticsTestSuite {
         }
         int posts = 1000;
         int comments = 500;
+
         when(statisticsMock.usersNames()).thenReturn(names);
         when(statisticsMock.postsCount()).thenReturn(posts);
         when(statisticsMock.commentsCount()).thenReturn(comments);
 
-        ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
+        ForumStatistics forumStatistics = new ForumStatistics();
 
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
-        double postsPerUser = forumStatistics.postsPerUser;
-        double commentsPerUser = forumStatistics.commentsPerUser;
-        double commentsPerPost = forumStatistics.commentsPerPost;
+        double postsPerUser = forumStatistics.getPostsPerUser();
+        double commentsPerUser = forumStatistics.getCommentsPerUser();
+        double commentsPerPost = forumStatistics.getCommentsPerPost();
 
         //Then
         Assert.assertEquals(1000/100, postsPerUser, 0);
@@ -75,13 +77,13 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.postsCount()).thenReturn(posts);
         when(statisticsMock.commentsCount()).thenReturn(comments);
 
-        ForumStatistics forumStatistics = new ForumStatistics(statisticsMock);
+        ForumStatistics forumStatistics = new ForumStatistics();
 
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
-        double postsPerUser = forumStatistics.postsPerUser;
-        double commentsPerUser = forumStatistics.commentsPerUser;
-        double commentsPerPost = forumStatistics.commentsPerPost;
+        double postsPerUser = forumStatistics.getPostsPerUser();
+        double commentsPerUser = forumStatistics.getCommentsPerUser();
+        double commentsPerPost = forumStatistics.getCommentsPerPost();
 
         //Then
         Assert.assertEquals(1000/100, postsPerUser, 0);

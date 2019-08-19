@@ -1,14 +1,14 @@
 package com.kodilla.testing.forum.statistics;
 
 public class ForumStatistics {
-    Statistics statistics;
 
-    int numberOfUsers;
-    int numberOfPosts;
-    int numberOfComments;
-    double postsPerUser;
-    double commentsPerUser;
-    double commentsPerPost;
+    private int numberOfUsers;
+    private int numberOfPosts;
+    private int numberOfComments;
+    private double postsPerUser;
+    private double commentsPerUser;
+    private double commentsPerPost;
+
 
     public int getNumberOfUsers() {
         return numberOfUsers;
@@ -32,10 +32,6 @@ public class ForumStatistics {
 
     public double getCommentsPerPost() {
         return commentsPerPost;
-    }
-
-    public ForumStatistics(Statistics statistics) {
-        this.statistics = statistics;
     }
 
     public void calculateAdvStatistics(Statistics statistics){

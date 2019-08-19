@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
@@ -98,7 +97,6 @@ public class BookDirectoryTestSuite {
 
         //Then
         assertEquals(0, theListOfBooks.size());
-        verify(libraryDatabaseMock, times(0)).listBooksInHandsOf(libraryUser);
     }
 
     @Test
@@ -106,7 +104,6 @@ public class BookDirectoryTestSuite {
         //Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
-        List<LibraryUser> libraryUsers = new ArrayList<LibraryUser>();
         LibraryUser libraryUser = new LibraryUser("Tom", "Hanks", "12345678");
         List<Book> resultListBooksInHandsOf1 = generateListOfNBooks(1);
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(resultListBooksInHandsOf1);
@@ -123,7 +120,6 @@ public class BookDirectoryTestSuite {
         //Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
-        List<LibraryUser> libraryUsers = new ArrayList<LibraryUser>();
         LibraryUser libraryUser = new LibraryUser("Tom", "Hanks", "12345678");
         List<Book> resultListBooksInHandsOf5 = generateListOfNBooks(5);
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(resultListBooksInHandsOf5);
