@@ -24,7 +24,7 @@ public class ForumStatisticsTestSuite {
         ForumStatistics forumStatistics = new ForumStatistics();
 
         //When
-        forumStatistics.calculateAdvStatistics(statisticsMock);
+        //forumStatistics.calculateAdvStatistics(statisticsMock);
         int numberOfUsers = forumStatistics.getNumberOfUsers();
         int numberOfPosts = forumStatistics.getNumberOfPosts();
         int numberOfComments = forumStatistics.getNumberOfComments();
