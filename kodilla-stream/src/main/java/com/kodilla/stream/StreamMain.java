@@ -14,10 +14,10 @@ public class StreamMain {
         processor.execute(codeToExecute);
 
         PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("Example", (text) -> System.out.println(text + "ABC"));
-        poemBeautifier.beautify("new example", (text) -> System.out.println(text.toUpperCase()));
-        poemBeautifier.beautify("Is this text too long?", (text) -> System.out.println(text.substring(8, 12)));
-        poemBeautifier.beautify("glue flower", (text) -> System.out.println(text.replace('g', 'b')));
+        poemBeautifier.beautify("Example", (text) -> text + "ABC");
+        poemBeautifier.beautify("new example", (text) -> text.toUpperCase());
+        poemBeautifier.beautify("Is this text too long?", (text) -> text.substring(8, 12));
+        poemBeautifier.beautify("glue flower", (text) -> text.replace('g', 'b'));
 
         System.out.println("Using Stream to generate even numbers from 1 to 20");
         NumbersGenerator.generateEven(20);
