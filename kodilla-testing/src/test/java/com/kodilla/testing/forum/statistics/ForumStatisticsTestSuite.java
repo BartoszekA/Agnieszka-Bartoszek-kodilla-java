@@ -24,15 +24,15 @@ public class ForumStatisticsTestSuite {
         ForumStatistics forumStatistics = new ForumStatistics();
 
         //When
-        //forumStatistics.calculateAdvStatistics(statisticsMock);
-        int numberOfUsers = forumStatistics.getNumberOfUsers();
-        int numberOfPosts = forumStatistics.getNumberOfPosts();
-        int numberOfComments = forumStatistics.getNumberOfComments();
+        forumStatistics.calculateAdvStatistics(statisticsMock);
+        double postsPerUser = forumStatistics.getPostsPerUser();
+        double commentsPerUser = forumStatistics.getCommentsPerUser();
+        double commentsPerPost = forumStatistics.getCommentsPerPost();
 
         //Then
-        Assert.assertEquals(0, numberOfUsers);
-        Assert.assertEquals(0, numberOfPosts);
-        Assert.assertEquals(0, numberOfComments);
+        Assert.assertEquals(0, forumStatistics.getPostsPerUser(),0);
+        Assert.assertEquals(0, forumStatistics.getCommentsPerUser(), 0);
+        Assert.assertEquals(0, forumStatistics.getCommentsPerPost(), 0);
     }
     @Test
     public void testForumStatistics2() {

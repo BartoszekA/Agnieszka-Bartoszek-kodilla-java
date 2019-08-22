@@ -35,13 +35,24 @@ public class ForumStatistics {
     }
 
     public void calculateAdvStatistics(Statistics statistics){
+        if(numberOfUsers > 0) {
+            postsPerUser = numberOfPosts / numberOfUsers;
+            commentsPerUser = numberOfComments / numberOfUsers;
+        } else {
+            postsPerUser = 0;
+            commentsPerUser = 0;
+        }
+        if (numberOfPosts > 0) {
+            commentsPerPost = (double)numberOfComments / (double)numberOfPosts;
+        } else {
+            commentsPerPost = 0;
+        }
 
         numberOfUsers = statistics.usersNames().size();
         numberOfPosts = statistics.postsCount();
         numberOfComments = statistics.commentsCount();
-        postsPerUser = numberOfPosts / numberOfUsers;
-        commentsPerUser = numberOfComments / numberOfUsers;
-        commentsPerPost = (double)numberOfComments / (double)numberOfPosts;
+
+
     }
 
     public void showStatistics(){
