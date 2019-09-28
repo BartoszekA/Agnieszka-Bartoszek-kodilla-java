@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Stream;
 
 public class MovieStore {
 
@@ -31,8 +30,9 @@ public class MovieStore {
     }
 
     public static void getFinalList(Map<String, List<String>> titles) {
-        titles.entrySet().stream().map( a -> a.getValue().toString().replaceAll(", ", "!")
-                .replaceAll("]", "!").replaceAll("\\[", ""))
-        .forEach(System.out::print);
+        titles.entrySet().stream()
+                .flatMap( a -> a.getValue().stream())
+                .peek(a -> System.out.print("!"))
+                .forEach(System.out::print);
     }
 }
