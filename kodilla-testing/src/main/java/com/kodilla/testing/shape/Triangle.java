@@ -9,10 +9,11 @@ public class Triangle implements Shape {
         this.h = h;
     }
 
-    public String getShapeName(){
+    public String getShapeName() {
         return "triangle";
     }
-    public double getField(){
+
+    public double getField() {
         return 0.5 * a * h;
     }
 }

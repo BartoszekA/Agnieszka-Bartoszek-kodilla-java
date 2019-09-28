@@ -13,11 +13,11 @@ public class FindFlight {
         String airport1 = flight.getDepartureAirport();
         String airport2 = flight.getArrivalAirport();
 
-        if(!flights.containsKey(airport1) || !flights.containsKey(airport2)) {
+        if (!flights.containsKey(airport1) || !flights.containsKey(airport2)) {
             throw new RouteNotFoundException();
         }
 
-        if(flights.get(airport1) && flights.get(airport2)) {
+        if (flights.get(airport1) && flights.get(airport2)) {
             System.out.println("Flight found.");
         } else {
             throw new RouteNotFoundException();

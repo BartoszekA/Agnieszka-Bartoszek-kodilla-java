@@ -15,7 +15,7 @@ public final class Continent {
         return name;
     }
 
-    public void addCountry(Country country){
+    public void addCountry(Country country) {
         countries.add(country);
     }
 

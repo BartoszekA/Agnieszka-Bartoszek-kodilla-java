@@ -7,10 +7,11 @@ public class Circle implements Shape {
         this.r = r;
     }
 
-    public String getShapeName(){
+    public String getShapeName() {
         return "circle";
     }
-    public double getField(){
-        return Math.PI*r*r;
+
+    public double getField() {
+        return Math.PI * r * r;
     }
 }

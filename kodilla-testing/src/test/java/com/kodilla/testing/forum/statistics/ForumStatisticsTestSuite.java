@@ -30,16 +30,17 @@ public class ForumStatisticsTestSuite {
         double commentsPerPost = forumStatistics.getCommentsPerPost();
 
         //Then
-        Assert.assertEquals(0, forumStatistics.getPostsPerUser(),0);
+        Assert.assertEquals(0, forumStatistics.getPostsPerUser(), 0);
         Assert.assertEquals(0, forumStatistics.getCommentsPerUser(), 0);
         Assert.assertEquals(0, forumStatistics.getCommentsPerPost(), 0);
     }
+
     @Test
     public void testForumStatistics2() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> names = new ArrayList<String>();
-        while(names.size() < 100) {
+        while (names.size() < 100) {
             names.add("");
         }
         int posts = 1000;
@@ -58,9 +59,9 @@ public class ForumStatisticsTestSuite {
         double commentsPerPost = forumStatistics.getCommentsPerPost();
 
         //Then
-        Assert.assertEquals(1000/100, postsPerUser, 0);
-        Assert.assertEquals(500/100, commentsPerUser, 0);
-        Assert.assertEquals((double)500/1000, commentsPerPost, 0);
+        Assert.assertEquals(1000 / 100, postsPerUser, 0);
+        Assert.assertEquals(500 / 100, commentsPerUser, 0);
+        Assert.assertEquals((double) 500 / 1000, commentsPerPost, 0);
     }
 
     @Test
@@ -68,7 +69,7 @@ public class ForumStatisticsTestSuite {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> names = new ArrayList<String>();
-        while(names.size() < 100) {
+        while (names.size() < 100) {
             names.add("");
         }
         int posts = 1000;
@@ -86,8 +87,8 @@ public class ForumStatisticsTestSuite {
         double commentsPerPost = forumStatistics.getCommentsPerPost();
 
         //Then
-        Assert.assertEquals(1000/100, postsPerUser, 0);
-        Assert.assertEquals(1500/100, commentsPerUser, 0);
-        Assert.assertEquals((double)1500/1000, commentsPerPost, 0);
+        Assert.assertEquals(1000 / 100, postsPerUser, 0);
+        Assert.assertEquals(1500 / 100, commentsPerUser, 0);
+        Assert.assertEquals((double) 1500 / 1000, commentsPerPost, 0);
     }
 }

@@ -2,9 +2,11 @@ package com.kodilla.stream.portfolio;
 
 import org.junit.Assert;
 import org.junit.Test;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 import static java.time.temporal.ChronoUnit.DAYS;
 import static java.util.stream.Collectors.toList;
 
@@ -18,7 +20,7 @@ public class BoardTestSuite {
         //tasks
         Task task1 = new Task("Microservice for taking temperature",
                 "Write and test the microservice taking\n" +
-                "the temperature from external service",
+                        "the temperature from external service",
                 user1,
                 user2,
                 LocalDate.now().minusDays(20),
@@ -148,7 +150,7 @@ public class BoardTestSuite {
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
                 .map(t -> DAYS.between(t.getCreated(), LocalDate.now()))
-                .reduce(0L, (a, b) -> a +b);
+                .reduce(0L, (a, b) -> a + b);
 
         long tasks = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)

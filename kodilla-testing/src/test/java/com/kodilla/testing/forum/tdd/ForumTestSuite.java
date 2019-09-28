@@ -15,12 +15,12 @@ public class ForumTestSuite {
     }
 
     @AfterClass
-    public static void afterAllTests(){
+    public static void afterAllTests() {
         System.out.println("All tests are finished.");
     }
 
     @Before
-    public void beforeEveryTest(){
+    public void beforeEveryTest() {
         testCounter++;
         System.out.println("Preparing to execute test #" + testCounter);
     }
