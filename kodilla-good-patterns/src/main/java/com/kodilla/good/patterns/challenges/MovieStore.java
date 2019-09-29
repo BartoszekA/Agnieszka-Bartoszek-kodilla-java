@@ -32,7 +32,7 @@ public class MovieStore {
     public static void getFinalList(Map<String, List<String>> titles) {
         titles.entrySet().stream()
                 .flatMap( a -> a.getValue().stream())
-                .peek(a -> System.out.print("!"))
+                .map(a -> a + "!")
                 .forEach(System.out::print);
     }
 }
