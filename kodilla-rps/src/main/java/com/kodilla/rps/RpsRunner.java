@@ -19,5 +19,7 @@ public class RpsRunner {
             rounds = in.nextInt();
         }
         System.out.println("Liczba rund to: " + rounds);
+        Round round = new Round();
+        round.move(rounds);
     }
 }
