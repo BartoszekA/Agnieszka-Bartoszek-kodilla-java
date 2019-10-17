@@ -38,10 +38,12 @@ public class Round {
                 Random random = new Random();
                 computerMove = random.nextInt(3) + 1;
                 logic.logic(userMove, computerMove);
-//            } else {
-//                System.out.println("Spróbuj jeszcze raz");
-//                move(rounds);
-//                //należy zmienić argument, bo zacznie liczyć od nowa ilość rund
+            } else {
+                System.out.println("Spróbuj jeszcze raz");
+                userMove = null;
+                scanner = null;
+                move(rounds);
+                //należy zmienić argument, bo zacznie liczyć od nowa ilość rund
             }
         }
     }

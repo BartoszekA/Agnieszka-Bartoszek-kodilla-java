@@ -1,13 +1,13 @@
 package com.kodilla.good.patterns.flights;
 
-public class FindRoute {
-    public static void main(String[] args) throws RouteNotFoundException {
-        Flight f1 = new Flight("Warszawa", "Rzeszów");
+import java.util.Set;
 
-        try {
-            FindFlight.findFlight(f1);
-        } catch (RouteNotFoundException e) {
-            System.out.println("Flight not found.");
-        }
+public class FindRoute {
+    public static void main(String[] args) {
+
+        Set<Flight> flights = FlightFactory.getFlight();
+        FindFlight.findDirectFlight(flights, "Warszawa", "Madryt");
+        FindFlight.findNotDirectFLight(flights, "Warszawa", "Madryt");
+
     }
 }

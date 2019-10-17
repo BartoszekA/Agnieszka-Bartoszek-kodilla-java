@@ -1,26 +1,34 @@
 package com.kodilla.good.patterns.flights;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class FindFlight {
-    public static void findFlight(Flight flight) throws RouteNotFoundException {
-        Map<String, Boolean> flights = new HashMap<>();
-        flights.put("Kraków", true);
-        flights.put("Warszawa", true);
-        flights.put("Poznań", false);
+    public static void findDirectFlight(Set<Flight> flights, String fromCity, String toCity)  {
 
-        String airport1 = flight.getDepartureAirport();
-        String airport2 = flight.getArrivalAirport();
+        flights.stream()
+                .filter(f -> f.getDepartureAirport().equals(fromCity))
+                .filter(f -> f.getArrivalAirport().equals(toCity))
+                .forEach(f -> System.out.println(f.getFlightID()));
+    }
 
-        if (!flights.containsKey(airport1) || !flights.containsKey(airport2)) {
-            throw new RouteNotFoundException();
+    public static void findNotDirectFLight(Set<Flight> flights, String fromCity, String toCity) {
+
+        Set<Flight> flightsFrom = flights.stream()
+                .filter(f -> f.getDepartureAirport().equals(fromCity))
+                .collect(Collectors.toSet());
+
+        Set<Flight> flightsTo = flights.stream()
+                .filter(f -> f.getArrivalAirport().equals(toCity))
+                .collect(Collectors.toSet());
+
+        for(Flight flight1 : flightsFrom) {
+            for(Flight flight2 : flightsTo) {
+                if(flight2.getDepartureAirport().equals(flight1.getArrivalAirport())) {
+                    System.out.println(flight1.getFlightID() + " + " + flight2.getFlightID());
+                }
+            }
         }
 
-        if (flights.get(airport1) && flights.get(airport2)) {
-            System.out.println("Flight found.");
-        } else {
-            throw new RouteNotFoundException();
-        }
     }
 }
