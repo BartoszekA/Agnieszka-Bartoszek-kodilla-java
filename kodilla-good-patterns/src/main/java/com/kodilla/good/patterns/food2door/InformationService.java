@@ -2,11 +2,11 @@ package com.kodilla.good.patterns.food2door;
 
 public class InformationService {
 
-    public void confirmOrder(Supplier supplier) {
+    public static void confirmOrder() {
         System.out.println("Zamówienie zostało zrealizowwane");
     }
 
-    public void rejectOrder(Supplier supplier) {
+    public static void rejectOrder() {
         System.out.println("Zamówienie nie zostało zrealizowane");
     }
 }
