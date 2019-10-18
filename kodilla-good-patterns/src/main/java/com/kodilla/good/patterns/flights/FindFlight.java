@@ -1,34 +1,31 @@
 package com.kodilla.good.patterns.flights;
 
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class FindFlight {
-    public static void findDirectFlight(Set<Flight> flights, String fromCity, String toCity)  {
+    public static Set<Flight> findFlight(Set<Flight> flights, String fromCity, String viaCity, String toCity)  {
 
         flights.stream()
                 .filter(f -> f.getDepartureAirport().equals(fromCity))
-                .filter(f -> f.getArrivalAirport().equals(toCity))
-                .forEach(f -> System.out.println(f.getFlightID()));
+                .filter(f -> f.getChangeAirport().equals(viaCity))
+                .filter(f -> f.getArrivalAirport().equals(toCity));
+
+        return flights;
     }
 
-    public static void findNotDirectFLight(Set<Flight> flights, String fromCity, String toCity) {
+    public static Set<Flight> findFlightFrom(Set<Flight> flights, String fromCity) {
 
-        Set<Flight> flightsFrom = flights.stream()
-                .filter(f -> f.getDepartureAirport().equals(fromCity))
-                .collect(Collectors.toSet());
+        flights.stream()
+                .filter(f -> f.getDepartureAirport().equals(fromCity));
 
-        Set<Flight> flightsTo = flights.stream()
-                .filter(f -> f.getArrivalAirport().equals(toCity))
-                .collect(Collectors.toSet());
+        return flights;
+    }
 
-        for(Flight flight1 : flightsFrom) {
-            for(Flight flight2 : flightsTo) {
-                if(flight2.getDepartureAirport().equals(flight1.getArrivalAirport())) {
-                    System.out.println(flight1.getFlightID() + " + " + flight2.getFlightID());
-                }
-            }
-        }
+    public static Set<Flight> findFlightTo(Set<Flight> flights, String toCity) {
 
+        flights.stream()
+                .filter(f -> f.getArrivalAirport().equals(toCity));
+
+        return flights;
     }
 }

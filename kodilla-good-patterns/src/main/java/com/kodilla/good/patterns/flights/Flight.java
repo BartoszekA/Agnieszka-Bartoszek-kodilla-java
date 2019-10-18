@@ -3,11 +3,13 @@ package com.kodilla.good.patterns.flights;
 public class Flight {
     private String flightID;
     private String departureAirport;
+    private String changeAirport;
     private String arrivalAirport;
 
-    public Flight(String flightID, String arrivalAirport, String departureAirport) {
+    public Flight(String flightID, String arrivalAirport, String changeAirport, String departureAirport) {
         this.flightID = flightID;
         this.departureAirport = departureAirport;
+        this.changeAirport = changeAirport;
         this.arrivalAirport = arrivalAirport;
     }
 
@@ -19,10 +21,13 @@ public class Flight {
         return departureAirport;
     }
 
+    public String getChangeAirport() {
+        return changeAirport;
+    }
+
     public String getArrivalAirport() {
         return arrivalAirport;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -31,18 +36,20 @@ public class Flight {
 
         Flight flight = (Flight) o;
 
+        if (flightID != null ? !flightID.equals(flight.flightID) : flight.flightID != null) return false;
         if (departureAirport != null ? !departureAirport.equals(flight.departureAirport) : flight.departureAirport != null)
             return false;
-        if (arrivalAirport != null ? !arrivalAirport.equals(flight.arrivalAirport) : flight.arrivalAirport != null)
+        if (changeAirport != null ? !changeAirport.equals(flight.changeAirport) : flight.changeAirport != null)
             return false;
-        return flightID != null ? flightID.equals(flight.flightID) : flight.flightID == null;
+        return arrivalAirport != null ? arrivalAirport.equals(flight.arrivalAirport) : flight.arrivalAirport == null;
     }
 
     @Override
     public int hashCode() {
-        int result = departureAirport != null ? departureAirport.hashCode() : 0;
+        int result = flightID != null ? flightID.hashCode() : 0;
+        result = 31 * result + (departureAirport != null ? departureAirport.hashCode() : 0);
+        result = 31 * result + (changeAirport != null ? changeAirport.hashCode() : 0);
         result = 31 * result + (arrivalAirport != null ? arrivalAirport.hashCode() : 0);
-        result = 31 * result + (flightID != null ? flightID.hashCode() : 0);
         return result;
     }
 }
