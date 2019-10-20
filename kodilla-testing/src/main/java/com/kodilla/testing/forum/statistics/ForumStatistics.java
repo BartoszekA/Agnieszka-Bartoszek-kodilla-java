@@ -23,14 +23,29 @@ public class ForumStatistics {
     }
 
     public double getPostsPerUser() {
+        if (numberOfUsers > 0) {
+            postsPerUser = numberOfPosts / numberOfUsers;
+        } else {
+            postsPerUser = 0;
+        }
         return postsPerUser;
     }
 
     public double getCommentsPerUser() {
+        if (numberOfUsers > 0) {
+            commentsPerUser = numberOfComments / numberOfUsers;
+        } else {
+            commentsPerUser = 0;
+        }
         return commentsPerUser;
     }
 
     public double getCommentsPerPost() {
+        if (numberOfPosts > 0) {
+            commentsPerPost = (double) numberOfComments / (double) numberOfPosts;
+        } else {
+            commentsPerPost = 0;
+        }
         return commentsPerPost;
     }
 

@@ -30,9 +30,9 @@ public class ForumStatisticsTestSuite {
         double commentsPerPost = forumStatistics.getCommentsPerPost();
 
         //Then
-        Assert.assertEquals(0, forumStatistics.getPostsPerUser(), 0);
-        Assert.assertEquals(0, forumStatistics.getCommentsPerUser(), 0);
-        Assert.assertEquals(0, forumStatistics.getCommentsPerPost(), 0);
+        Assert.assertEquals(0, postsPerUser, 0);
+        Assert.assertEquals(0, commentsPerUser, 0);
+        Assert.assertEquals(0, commentsPerPost, 0);
     }
 
     @Test
