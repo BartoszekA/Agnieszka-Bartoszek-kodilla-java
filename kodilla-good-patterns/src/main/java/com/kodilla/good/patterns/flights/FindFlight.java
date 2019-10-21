@@ -4,7 +4,14 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class FindFlight {
-    public static Set<Flight> findFlight(Set<Flight> flights, String fromCity, String viaCity, String toCity)  {
+
+    private final Set<Flight> flights;
+
+    public FindFlight(Set<Flight> flights) {
+        this.flights = flights;
+    }
+
+    public Set<Flight> findFlight(String fromCity, String viaCity, String toCity)  {
 
         Set<Flight> foundFlights = flights.stream()
                 .filter(f -> f.getDepartureAirport().equals(fromCity))
@@ -15,7 +22,7 @@ public class FindFlight {
         return foundFlights;
     }
 
-    public static Set<Flight> findFlightFrom(Set<Flight> flights, String fromCity) {
+    public Set<Flight> findFlightFrom(String fromCity) {
 
         Set<Flight> foundFlightsFrom = flights.stream()
                 .filter(f -> f.getDepartureAirport().equals(fromCity))
@@ -24,7 +31,7 @@ public class FindFlight {
         return foundFlightsFrom;
     }
 
-    public static Set<Flight> findFlightTo(Set<Flight> flights, String toCity) {
+    public Set<Flight> findFlightTo(String toCity) {
 
         Set<Flight> foundFlightsTo = flights.stream()
                 .filter(f -> f.getArrivalAirport().equals(toCity))

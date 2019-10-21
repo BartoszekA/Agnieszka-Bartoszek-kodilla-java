@@ -13,7 +13,8 @@ public class Round {
         for(int i = 0; i < rounds; i++) {
             System.out.println("Wybierz ruch:\n1 - kamień\n2 - papier\n3 - nożyce\nx - koniec gry\nn - nowa gra");
             userMove = scanner.next();
-            if(userMove == "x") {
+            System.out.println(userMove);
+            if(userMove.equals("x")) {
                 System.out.println("Czy na pewno chcesz wyjść z gry? (y/n)");
                 userMove = scanner.next();
                 if(userMove == "y") {
