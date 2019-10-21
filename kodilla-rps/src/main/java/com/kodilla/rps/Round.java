@@ -13,26 +13,25 @@ public class Round {
         for(int i = 0; i < rounds; i++) {
             System.out.println("Wybierz ruch:\n1 - kamień\n2 - papier\n3 - nożyce\nx - koniec gry\nn - nowa gra");
             userMove = scanner.next();
-            System.out.println(userMove);
             if(userMove.equals("x")) {
                 System.out.println("Czy na pewno chcesz wyjść z gry? (y/n)");
                 userMove = scanner.next();
-                if(userMove == "y") {
+                if(userMove.equals("y")) {
                     System.out.println("Gra została zakończona. Do zobaczenia wkrótce!");
                     System.exit(0);
                 }
-                else if (userMove == "n") {
+                else if (userMove.equals("n")) {
                     //ciąg dalszy gry
                 }
             }
-            else if(userMove == "n"){
+            else if(userMove.equals("n")){
                 System.out.println("Czy na pewno chcesz zakończyć tę rozgrywkę? (y/n)");
                 userMove = scanner.next();
-                if(userMove == "y") {
+                if(userMove.equals("y")) {
                     //nowa gra
                 }
-                else if (userMove == "n") {
-                    //ciąg dalszy gry
+                else if (userMove.equals("n")) {
+                    //ciąg dalszy gry)
                 }
             }
             else if (userMove == "1" || userMove == "2" || userMove == "3") {
