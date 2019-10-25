@@ -7,6 +7,10 @@ public class Calculator {
     Display display;
     double result;
 
+    public Calculator(Display display) {
+        this.display = display;
+    }
+
     public double add(double a, double b) {
         result = a + b;
         display.displayValue(result);
