@@ -7,14 +7,11 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class BoardConfig {
-    @Autowired
-    @Qualifier("toDo")
-    TaskList taskList;
 
-    @Bean
-    public Board getBoard() {
-        return new Board();
-    }
+//    @Bean
+//    public Board getBoard() {
+//        return new Board();
+//    }
 
     @Bean(name = "toDo")
     public TaskList getToDoList() {

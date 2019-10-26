@@ -16,6 +16,5 @@ public class BoardTestSuite {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
         Board board = context.getBean(Board.class);
         //When
-
     }
 }

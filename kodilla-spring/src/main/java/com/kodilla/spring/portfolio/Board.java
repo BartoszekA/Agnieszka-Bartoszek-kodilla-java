@@ -11,7 +11,7 @@ public final class Board {
 
 //    @Autowired
 //    private final BoardConfig boardConfig;
-
+//
 //    public Board(final BoardConfig boardConfig) {
 //        this.boardConfig = boardConfig;
 //    }
