@@ -18,7 +18,7 @@ public class RentalProcessor {
 
     public RentalDto process(final RentRequest rentRequest) {
         boolean isRented = rentalService.rent(rentRequest.getUser(), rentRequest.getFrom(), rentRequest.getTo());
-        if(isRented) {
+        if (isRented) {
             informationService.inform(rentRequest.getUser());
             rentalRepository.createRental(rentRequest.getUser(), rentRequest.getFrom(), rentRequest.getTo());
             return new RentalDto(rentRequest.getUser(), true);
