@@ -7,7 +7,7 @@ public class OrderProcessor {
         this.orderRetriever = orderRetriever;
     }
 
-    public void process(Supplier supplier) {
+    public void process(Supplier supplier){
         System.out.println(orderRetriever.retrieve());
         supplier.process();
         InformationService.confirmOrder();
