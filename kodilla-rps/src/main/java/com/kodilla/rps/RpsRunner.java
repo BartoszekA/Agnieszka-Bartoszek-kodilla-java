@@ -19,7 +19,8 @@ public class RpsRunner {
             rounds = in.nextInt();
         }
         System.out.println("Liczba rund to: " + rounds);
-        Round round = new Round();
+        RpsLogic logic = new RpsLogic();
+        Round round = new Round(logic);
         round.move(rounds);
     }
 }

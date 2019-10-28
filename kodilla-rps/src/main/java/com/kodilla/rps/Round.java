@@ -40,10 +40,10 @@ public class Round {
                 }
             }
             else if (userMove == "1" || userMove == "2" || userMove == "3") {
-                //zamienic String na int
+                int userMoveInt = Integer.valueOf(userMove);
                 Random random = new Random();
                 computerMove = random.nextInt(3) + 1;
-                logic.logic(userMove, computerMove);
+                logic.logic(userMoveInt, computerMove);
             }
         }
     }
