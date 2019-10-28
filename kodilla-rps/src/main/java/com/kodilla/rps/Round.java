@@ -4,6 +4,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Round {
+    RpsLogic logic;
+
+    public Round(RpsLogic logic) {
+        this.logic = logic;
+    }
 
     public void move(int rounds) {
         String userMove;
@@ -35,7 +40,7 @@ public class Round {
                 }
             }
             else if (userMove == "1" || userMove == "2" || userMove == "3") {
-                RpsLogic logic = new RpsLogic();
+                //zamienic String na int
                 Random random = new Random();
                 computerMove = random.nextInt(3) + 1;
                 logic.logic(userMove, computerMove);

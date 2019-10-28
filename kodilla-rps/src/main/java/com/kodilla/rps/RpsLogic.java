@@ -4,7 +4,7 @@ public class RpsLogic {
     int userPoints = 0;
     int computerPoints = 0;
 
-    public void logic(String userMove, int computerMove) {
+    public void logic(int userMove, int computerMove) {
         if(userMove == "1" && computerMove == 1) {
             //remis
         }
