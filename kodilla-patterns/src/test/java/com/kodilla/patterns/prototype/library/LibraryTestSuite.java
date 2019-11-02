@@ -7,25 +7,24 @@ import java.time.LocalDate;
 import java.util.stream.IntStream;
 
 public class LibraryTestSuite {
-    @Test
-    public void testGetBooksShallowCopy() {
-        //Given
+    public Library createLibrary() {
         Library library = new Library("My library");
         IntStream.iterate(1, n-> n + 1)
                 .limit(5)
                 .forEach(n -> library.getBooks().add(new Book("Title #" + n, "Author #" + n, LocalDate.now())));
+        return library;
+    }
 
-        //making shallow clone of object library
-        Library clonedLibrary = null;
-        try {
-            clonedLibrary = library.shallowCopy();
-            clonedLibrary.setName("My cloned library");
-        } catch (CloneNotSupportedException e) {
-            System.out.println(e);
-        }
+    @Test
+    public void testGetBooksShallowCopy() throws CloneNotSupportedException {
+        //Given
+        Library library = createLibrary();
+        Library clonedLibrary = library.shallowCopy();
+        clonedLibrary.setName("My cloned library");
 
         //When
         library.getBooks().clear();
+
         //Then
         Assert.assertEquals(0, library.getBooks().size());
         Assert.assertEquals(0, clonedLibrary.getBooks().size());
@@ -33,24 +32,15 @@ public class LibraryTestSuite {
     }
 
     @Test
-    public void testGetBooksDeepCopy() {
+    public void testGetBooksDeepCopy() throws CloneNotSupportedException {
         //Given
-        Library library = new Library("My library");
-        IntStream.iterate(1, n-> n + 1)
-                .limit(5)
-                .forEach(n -> library.getBooks().add(new Book("Title #" + n, "Author #" + n, LocalDate.now())));
-
-        //making deep copy of object library
-        Library deepClonedLibrary = null;
-        try {
-            deepClonedLibrary = library.deepCopy();
-            deepClonedLibrary.setName("My library - deep cloned");
-        } catch (CloneNotSupportedException e) {
-            System.out.println(e);
-        }
+        Library library = createLibrary();
+        Library deepClonedLibrary = library.deepCopy();
+        deepClonedLibrary.setName("My library - deep cloned");
 
         //When
         library.getBooks().clear();
+
         //Then
         Assert.assertEquals(0, library.getBooks().size());
         Assert.assertEquals(5, deepClonedLibrary.getBooks().size());
