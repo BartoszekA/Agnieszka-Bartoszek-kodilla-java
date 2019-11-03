@@ -21,5 +21,12 @@ public class BigmacTestSuite {
         int howManyIngredients = bigmac.getIngredients().size();
         //Then
         Assert.assertEquals(4, howManyIngredients);
+        Assert.assertEquals("sesame", bigmac.getBun());
+        Assert.assertEquals(1, bigmac.getBurgers());
+        Assert.assertEquals("standard", bigmac.getSauce());
+        Assert.assertTrue(bigmac.getIngredients().contains("onion"));
+        Assert.assertTrue(bigmac.getIngredients().contains("cucumber"));
+        Assert.assertTrue(bigmac.getIngredients().contains("tomato"));
+        Assert.assertTrue(bigmac.getIngredients().contains("cheese"));
     }
 }
