@@ -1,42 +1,57 @@
 package com.kodilla.rps;
 
 public class RpsLogic {
-    int userPoints = 0;
-    int computerPoints = 0;
+    private int userPoints = 0;
+    private int computerPoints = 0;
+
 
     public void logic(int userMove, int computerMove) {
         if(userMove == 1 && computerMove == 1) {
-            //remis
+            System.out.println("Wybrałeś kamień.\nKomputer też wybrał kamień.\n");
         }
         else if(userMove == 1 && computerMove == 2) {
+            System.out.println("Wybrałeś kamień.\nKomputer wybrał papier.\nPapier przykrywa kamień.\n");
             computerPoints++;
-            //tu wpisz cos
         }
         else if(userMove == 1 && computerMove == 3) {
+            System.out.println("Wybrałeś kamień.\nKomputer wybrał nożyce.\nKamień zgniata nożyce.\n");
             userPoints++;
-            //tu wpisz cos
         }
         else if(userMove == 2 && computerMove == 1) {
+            System.out.println("Wybrałeś papier.\nKomputer wybrał kamień.\nPapier przykrywa kamień.\n");
             userPoints++;
-            //xxx
         }
         else if(userMove == 2 && computerMove == 2) {
-            //remis
+            System.out.println("Wybrałeś papier.\nKomputer też wybrał papier.\n");
         }
         else if(userMove == 2 && computerMove == 3) {
+            System.out.println("Wybrałeś papier.\nKomputer wybrał nożyce.\nNożyce tną papier.\n");
             computerPoints++;
-            //jjj
         }
         else if(userMove == 3 && computerMove == 1) {
+            System.out.println("Wybrałeś nożyce.\nKomputer wybrał kamień.\nKamień zgniata nożyce.\n");
             computerPoints++;
-            //ddd
         }
         else if(userMove == 3 && computerMove == 2) {
+            System.out.println("Wybrałeś nożyce.\nKomputer wybrał papier.\nNożyce tną papier.\n");
             userPoints++;
-            //www
         }
         else if(userMove == 3 && computerMove == 3) {
-            //remis
+            System.out.println("Wybrałeś nożyce.\nKomputer też wybrał nożyce.\n");
         }
+
+    }
+
+    public boolean isEnd (int rounds, String name) {
+        System.out.println("Aktualna liczba punktów:\n" + name + ": " + userPoints + "\nKomputer: " + computerPoints);
+        System.out.println();
+        if ((userPoints == rounds) || (computerPoints == rounds)) {
+            if (userPoints > computerPoints) {
+                System.out.println("Wygrywa " + name);
+            } else {
+                System.out.println("Wygrywa komputer.");
+            }
+            return true;
+        } else return false;
     }
 }
