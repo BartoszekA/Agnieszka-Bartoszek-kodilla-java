@@ -39,8 +39,14 @@ public class Product {
         this.name = name;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "ITEM_ID")
+//    @ManyToOne
+//    @JoinColumn(name = "ITEM_ID")
+    @OneToMany(
+            targetEntity = Item.class,
+            mappedBy = "product",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
     public Item getItem() {
         return item;
     }
