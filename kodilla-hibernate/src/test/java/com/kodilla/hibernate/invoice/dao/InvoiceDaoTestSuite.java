@@ -40,10 +40,6 @@ public class InvoiceDaoTestSuite {
         invoice.getItems().add(item2);
         invoice.getItems().add(item3);
         invoice.getItems().add(item4);
-        item1.setInvoice(invoice);
-        item2.setInvoice(invoice);
-        item3.setInvoice(invoice);
-        item4.setInvoice(invoice);
 
         //When
         invoiceDao.save(invoice);
@@ -53,6 +49,6 @@ public class InvoiceDaoTestSuite {
         Assert.assertNotEquals(0, id);
 
         //CleanUp
-        //invoiceDao.deleteById(id);
+        invoiceDao.deleteById(id);
     }
 }

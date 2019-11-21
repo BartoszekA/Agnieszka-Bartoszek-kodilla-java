@@ -8,7 +8,6 @@ import javax.validation.constraints.NotNull;
 public class Product {
     private int id;
     private String name;
-    private Item item;
 
     public Product() {
     }
@@ -37,21 +36,5 @@ public class Product {
 
     private void setName(String name) {
         this.name = name;
-    }
-
-//    @ManyToOne
-//    @JoinColumn(name = "ITEM_ID")
-    @OneToMany(
-            targetEntity = Item.class,
-            mappedBy = "product",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
-    public Item getItem() {
-        return item;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
     }
 }
