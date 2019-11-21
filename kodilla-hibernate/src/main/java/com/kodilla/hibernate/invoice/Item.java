@@ -69,6 +69,7 @@ public class Item {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
+    @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
     }
