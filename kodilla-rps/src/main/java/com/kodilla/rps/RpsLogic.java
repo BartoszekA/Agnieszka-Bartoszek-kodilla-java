@@ -4,6 +4,13 @@ public class RpsLogic {
     private int userPoints = 0;
     private int computerPoints = 0;
 
+    public int getUserPoints() {
+        return userPoints;
+    }
+
+    public int getComputerPoints() {
+        return computerPoints;
+    }
 
     public void logic(int userMove, int computerMove) {
         if(userMove == 1 && computerMove == 1) {
