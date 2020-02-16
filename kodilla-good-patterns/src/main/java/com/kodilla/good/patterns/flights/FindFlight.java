@@ -11,7 +11,7 @@ public class FindFlight {
         this.flights = flights;
     }
 
-    public Set<Flight> findFlight(String fromCity, String viaCity, String toCity)  {
+    public Set<Flight> findFlight(String fromCity, String viaCity, String toCity) {
 
         Set<Flight> foundFlights = flights.stream()
                 .filter(f -> f.getDepartureAirport().equals(fromCity))

@@ -18,7 +18,7 @@ public class SettingsFileEngine {
         return settingsFileEngineInstance;
     }
 
-    public String getFileName (){
+    public String getFileName() {
         return fileName;
     }
 

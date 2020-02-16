@@ -13,7 +13,7 @@ public final class ShoppingTask implements Task {
     }
 
     @Override
-    public void executeTask(){
+    public void executeTask() {
         System.out.println("Shopping task is being executed.");
         isExecuted = true;
     }

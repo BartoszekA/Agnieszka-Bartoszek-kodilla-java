@@ -13,7 +13,7 @@ public final class PaintingTask implements Task {
     }
 
     @Override
-    public void executeTask(){
+    public void executeTask() {
         System.out.println("Painting task is being executed.");
         isExecuted = true;
     }

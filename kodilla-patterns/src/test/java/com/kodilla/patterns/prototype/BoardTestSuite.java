@@ -12,8 +12,8 @@ public class BoardTestSuite {
         //creating the TaskList for todos
         TaskList listToDo = new TaskList("To Do Tasks");
         IntStream.iterate(1, n -> n + 1)
-        .limit(10)
-        .forEach(n -> listToDo.getTasks().add(new Task("To Do Task number " + n)));
+                .limit(10)
+                .forEach(n -> listToDo.getTasks().add(new Task("To Do Task number " + n)));
 
         //creating the TaskList for tasks in progress
         TaskList listInProgress = new TaskList("In Progress Tasks");

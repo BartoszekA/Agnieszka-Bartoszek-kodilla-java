@@ -24,7 +24,7 @@ public class RpsTestSuite {
     public void testCaseRockPaper() {
         //Given
         RpsLogic logic = new RpsLogic();
-        logic.logic(1,2);
+        logic.logic(1, 2);
 
         //When
         int userPoints = logic.getUserPoints();

@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 public class LibraryTestSuite {
     public Library createLibrary() {
         Library library = new Library("My library");
-        IntStream.iterate(1, n-> n + 1)
+        IntStream.iterate(1, n -> n + 1)
                 .limit(5)
                 .forEach(n -> library.getBooks().add(new Book("Title #" + n, "Author #" + n, LocalDate.now())));
         return library;

@@ -20,7 +20,7 @@ public class InvoiceDaoTestSuite {
 
     @Test
     public void testInvoiceDaoSave() {
-       //Given
+        //Given
         Product product1 = new Product("Product1");
         Product product2 = new Product("Product2");
         Product product3 = new Product("Product3");

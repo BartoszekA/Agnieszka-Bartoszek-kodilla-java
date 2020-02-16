@@ -13,7 +13,7 @@ public final class DrivingTask implements Task {
     }
 
     @Override
-    public void executeTask(){
+    public void executeTask() {
         System.out.println("Driving task is being executed.");
         isExecuted = true;
     }

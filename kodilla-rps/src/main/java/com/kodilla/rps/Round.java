@@ -20,7 +20,7 @@ public class Round {
         Scanner scanner = new Scanner(System.in);
         boolean end = false;
 
-        while(!end) {
+        while (!end) {
             System.out.println("Wybierz ruch:\n1 - kamień\n2 - papier\n3 - nożyce\nx - koniec gry\nn - nowa gra");
             userMove = scanner.next();
             if (userMove.equals("1") || userMove.equals("2") || userMove.equals("3")) {
@@ -33,22 +33,19 @@ public class Round {
             } else if (userMove.equals("x")) {
                 System.out.println("Czy na pewno chcesz wyjść z gry? (y/n)");
                 userMove = scanner.next();
-                if(userMove.equals("y")) {
+                if (userMove.equals("y")) {
                     System.out.println("Gra została zakończona. Do zobaczenia wkrótce!");
                     end = true;
-                }
-                else if (userMove.equals("n")) {
+                } else if (userMove.equals("n")) {
                     return makeMoves();
                 }
-            }
-            else if(userMove.equals("n")){
+            } else if (userMove.equals("n")) {
                 System.out.println("Czy na pewno chcesz zakończyć tę rozgrywkę? (y/n)");
                 userMove = scanner.next();
-                if(userMove.equals("y")) {
+                if (userMove.equals("y")) {
                     end = true;
                     return true;
-                }
-                else if (userMove.equals("n")) {
+                } else if (userMove.equals("n")) {
                     return makeMoves();
                 }
             }
