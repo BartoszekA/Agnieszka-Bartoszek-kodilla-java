@@ -18,10 +18,6 @@ public final class CompanyFacade {
         return companyDao.save(company);
     }
 
-    public void saveEmployee(Employee employee) {
-        employeeDao.save(employee);
-    }
-
     public Company findCompanyByPartName(String partOfName) {
         return companyDao.findCompanyByPartName("%" + partOfName + "%");
     }
@@ -29,4 +25,10 @@ public final class CompanyFacade {
     public void deleteCompanyById(int id) {
         companyDao.deleteById(id);
     }
+
+    public Employee retrieveEmployee(String partOfName) {
+        return employeeDao.retrieveEmployee("%" + partOfName + "%");
+    }
+
+
 }
