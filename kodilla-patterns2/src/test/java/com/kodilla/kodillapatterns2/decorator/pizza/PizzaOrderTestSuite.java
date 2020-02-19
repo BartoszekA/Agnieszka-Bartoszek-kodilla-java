@@ -13,22 +13,11 @@ public class PizzaOrderTestSuite {
         PizzaOrder theOrder = new BasicPizzaOrder();
         theOrder = new HamDecorator(theOrder);
         theOrder = new MushroomsDecorator(theOrder);
-        System.out.println(theOrder.getCost());
         //When
         BigDecimal theCost = theOrder.getCost();
-        //Then
-        assertEquals(new BigDecimal(22), theCost);
-    }
-    @Test
-    public void testPizzaHamMushroomsGetDescription() {
-        //Given
-        PizzaOrder theOrder = new BasicPizzaOrder();
-        theOrder = new HamDecorator(theOrder);
-        theOrder = new MushroomsDecorator(theOrder);
-        System.out.println(theOrder.getDescription());
-        //When
         String description = theOrder.getDescription();
         //Then
+        assertEquals(new BigDecimal(22), theCost);
         assertEquals("Order pizza: margherita + ham + mushrooms", description);
     }
     @Test
@@ -37,46 +26,24 @@ public class PizzaOrderTestSuite {
         PizzaOrder theOrder = new BasicPizzaOrder();
         theOrder = new HamDecorator(theOrder);
         theOrder = new PineappleDecorator(theOrder);
-        System.out.println(theOrder.getCost());
         //When
         BigDecimal theCost = theOrder.getCost();
-        //Then
-        assertEquals(new BigDecimal(23), theCost);
-    }
-    @Test
-    public void testPizzaHamPineappleGetDescription() {
-        //Given
-        PizzaOrder theOrder = new BasicPizzaOrder();
-        theOrder = new HamDecorator(theOrder);
-        theOrder = new PineappleDecorator(theOrder);
-        System.out.println(theOrder.getDescription());
-        //When
         String description = theOrder.getDescription();
         //Then
+        assertEquals(new BigDecimal(23), theCost);
         assertEquals("Order pizza: margherita + ham + pineapple", description);
     }
     @Test
-    public void testPizzaExtraCheesePepperGetCost() {
+    public void testPizzaExtraCheesePepper() {
         //Given
         PizzaOrder theOrder = new BasicPizzaOrder();
         theOrder = new ExtraCheeseDecorator(theOrder);
         theOrder = new PepperDecorator(theOrder);
-        System.out.println(theOrder.getCost());
         //When
         BigDecimal theCost = theOrder.getCost();
-        //Then
-        assertEquals(new BigDecimal(21), theCost);
-    }
-    @Test
-    public void testPizzaExtraCheesePepperGetDescription() {
-        //Given
-        PizzaOrder theOrder = new BasicPizzaOrder();
-        theOrder = new ExtraCheeseDecorator(theOrder);
-        theOrder = new PepperDecorator(theOrder);
-        System.out.println(theOrder.getDescription());
-        //When
         String description = theOrder.getDescription();
         //Then
+        assertEquals(new BigDecimal(21), theCost);
         assertEquals("Order pizza: margherita + extra cheese + pepper", description);
     }
 }
