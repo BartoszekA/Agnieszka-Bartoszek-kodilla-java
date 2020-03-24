@@ -1,8 +1,10 @@
 plugins {
     id 'java'
+    id "application"
 }
 
-version 'unspecified'
+group 'com.kodilla'
+version '0.0.1-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
@@ -12,5 +14,13 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.5'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+}
+
+ext {
+    javaMainClass = "com.kodilla.testing2.google.GoogleTestingApp"
+}
+
+application {
+    mainClassName = javaMainClass
 }
