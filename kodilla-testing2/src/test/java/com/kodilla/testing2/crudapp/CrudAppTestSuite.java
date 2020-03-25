@@ -83,7 +83,6 @@ public class CrudAppTestSuite {
         driverTrello.findElement(By.id("login-submit")).submit();
         Thread.sleep(2000);
         driverTrello.findElement(By.id("password")).sendKeys("password123");
-        //driverTrello.findElement(By.xpath("//form[@id=\"form-login\"//div[@id;\'password\"")).sendKeys("password123");
         driverTrello.findElement(By.id("login-submit")).submit();
 
         Thread.sleep(10000);
@@ -104,10 +103,23 @@ public class CrudAppTestSuite {
         return result;
     }
 
+    private void removeTaskFromCrudApp(String taskName) throws InterruptedException {
+        driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
+                .filter(anyForm ->
+                        anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
+                                .getText().equals(taskName))
+                .forEach(theForm -> {
+                    WebElement buttonDelete = theForm.findElement(By.xpath(".//button[4]"));
+                    buttonDelete.click();
+                });
+        Thread.sleep(5000);
+    }
+
     @Test
     public void shouldCreateTrelloCard() throws InterruptedException {
         String taskName = createCrudAppTestTask();
         sendTestTaskToTrello(taskName);
         assertTrue(checkTaskExistsInTrello(taskName));
+        removeTaskFromCrudApp(taskName);
     }
 }
