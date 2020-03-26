@@ -31,6 +31,14 @@ public class CrudAppTestSuite {
         driver.close();
     }
 
+    @Test
+    public void shouldCreateTrelloCard() throws InterruptedException {
+        String taskName = createCrudAppTestTask();
+        sendTestTaskToTrello(taskName);
+        assertTrue(checkTaskExistsInTrello(taskName));
+        removeTaskFromCrudApp(taskName);
+    }
+
     public String createCrudAppTestTask() throws InterruptedException {
         final String XPATH_TASK_NAME = "//form[contains(@action, \"createTask\")]/fieldset[1]/input";
         final String XPATH_TASK_CONTENT = "//form[contains(@action, \"createTask\")]/fieldset[2]/textarea";
@@ -113,13 +121,5 @@ public class CrudAppTestSuite {
                     buttonDelete.click();
                 });
         Thread.sleep(5000);
-    }
-
-    @Test
-    public void shouldCreateTrelloCard() throws InterruptedException {
-        String taskName = createCrudAppTestTask();
-        sendTestTaskToTrello(taskName);
-        assertTrue(checkTaskExistsInTrello(taskName));
-        removeTaskFromCrudApp(taskName);
     }
 }
